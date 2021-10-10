@@ -34,6 +34,8 @@
 |jobustamantea@unal.edu.co     |                       |
 |jucadavidj@unal.edu.co        |jucadavid              |
 |jfcadavidr@unal.edu.co        |jcadavid               |
+|jobustamantea@unal.edu.co     |     JoseDaniel959     |
+|jucadavidj@unal.edu.co        |                       |
 |dacaicedoe@unal.edu.co        |                       |
 |jcanor@unal.edu.co            |canojuanpa800          |
 |sacastanoa@unal.edu.co        |SamuelCastaAlf         |
