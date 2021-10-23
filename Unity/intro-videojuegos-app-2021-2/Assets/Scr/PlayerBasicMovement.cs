@@ -23,6 +23,7 @@ public class PlayerBasicMovement : MonoBehaviour
         //Which one should we use? (GetAxis or GetAxisRaw)
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        bool dash = Input.GetKey("space");
 
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
@@ -31,9 +32,9 @@ public class PlayerBasicMovement : MonoBehaviour
         {
             _currentSpeed += _acceleration * Time.deltaTime;
             
-            //TODO: Normalize the input to get the direction
+            Vector3 normalizedInput = input.normalized;
             //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
+            lastMovementDirection = normalizedInput;
         }
         else
         {
@@ -45,8 +46,17 @@ public class PlayerBasicMovement : MonoBehaviour
         
         Vector3 velocity = lastMovementDirection * _currentSpeed;
         Vector3 movement = velocity * Time.deltaTime;
-        
-        transform.position += movement;
+        Vector3 dashMovement = lastMovementDirection * 1.05f;
+
+        if (dash && input.magnitude > 0)
+        {
+            transform.position += dashMovement;
+        }
+        else
+        {
+            transform.position += movement;
+            
+        }
     }
     
 }

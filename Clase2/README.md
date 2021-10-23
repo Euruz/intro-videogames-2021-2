@@ -42,3 +42,23 @@
 
 ## NOTA!!!!!!!!!
 **Si no tiene permisos para: clonar el repositorio, crear una nueva branch, hacer Pull, hacer Push, hacer Pull Request, o cualquier otro inconveniente relacionado al repositorio, por favor contactenos para resolver el problema lo mas pronto posible!!!!**
+
+---
+
+### Answers
+
+- What's the difference if we use Input.GetAxisRaw instead?
+
+  > The difference is that Input.GetAxisRaw returns a integer and discrete axis value {-1, 0, 1} while Input.GetAxis returns a float and continuous axis value [-1, 1]
+
+- Which one should we use? (GetAxis or GetAxisRaw)
+
+  > This depends on how we want the game controls to feel. If we use Input.GetAxisRaw, the player will feel less control of the character because of the discrete range of values it returns. In the other hand if we use Input.GetAxis, the player will feel more control of the character. I think Input.GetAxisRaw can be use with the current code for example, if the character is over a slippery  ground
+
+- What does .magnitude?
+
+  > .magnitude returns the distance between the head of the vector and the origin (0, 0, 0). It is useful because if it is greatest that 0 this means that the player is trying to move the character in some direction (horizontal axis, vertical axis or both)
+
+- What means to normalize a Vector? And why it's useful when we apply movement?
+
+  > When we normalize a vector we get a new vector that has the same direction of the source vector but with magnitude equals to 1. This is useful when we just want to know the player's movement direction
