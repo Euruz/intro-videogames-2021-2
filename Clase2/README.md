@@ -26,6 +26,8 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+dfgdsg
+
   - Cuál se deberia usar? (Pregunta capciosa...).
   - Qué hace `input.magnitude`? Por qué es util?
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
