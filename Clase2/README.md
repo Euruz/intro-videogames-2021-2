@@ -26,13 +26,13 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
-    R:// GetAxisRaw solo devuelve valores de {-1,0,1} mientras que GetAxis es mas progresivo, parece estar suavizado.
+  -   R:// GetAxisRaw solo devuelve valores de {-1,0,1} mientras que GetAxis es mas progresivo, parece estar suavizado.
   - Cuál se deberia usar? (Pregunta capciosa...).
-    R:// Bueno como casi todo, depende de la situacion, en ocaciones se necesita una respuesta mas directa o menos esponjosa (GetAxisRaw), y en otras viene bien suavizar el movimiento (GetAxis)
+  -   R:// Bueno como casi todo, depende de la situacion, en ocaciones se necesita una respuesta mas directa o menos esponjosa (GetAxisRaw), y en otras viene bien suavizar el movimiento (GetAxis)
   - Qué hace `input.magnitude`? Por qué es util?
-    R:// Devuelve la magnitud de la variable input, y en el script se utiliza para detectar si se esta moviendo el personaje o no.
+  -   R:// Devuelve la magnitud de la variable input, y en el script se utiliza para detectar si se esta moviendo el personaje o no.
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
-    R:// Normalizar un Vector significa multiplicarlo por el inverso de su magnitud, esto nos da como resultado un vector que conserva la direccion pero tiene magnitud 1, supongo que seria util para tener mayor control del vector a la hora de escalarlo
+  -   R:// Normalizar un Vector significa multiplicarlo por el inverso de su magnitud, esto nos da como resultado un vector que conserva la direccion pero tiene magnitud 1, supongo que seria util para tener mayor control del vector a la hora de escalarlo
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
