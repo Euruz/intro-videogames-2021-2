@@ -23,7 +23,10 @@ public class PlayerBasicMovement : MonoBehaviour
         //Which one should we use? (GetAxis or GetAxisRaw)
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        Debug.Log("Showing horizontal axis by GetAxis: " + horizontal);
+        Debug.Log("Showing horizontal axis by GetAxisRaw: " + Input.GetAxisRaw("Horizontal"));
+        Debug.Log("Showing vertical axis by GetAxis: " + vertical);
+        Debug.Log("Showing vertical axis by GetAxisRaw: " + Input.GetAxisRaw("Vertical"));
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
         //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
