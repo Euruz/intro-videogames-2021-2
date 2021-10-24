@@ -26,9 +26,14 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+  Respuesta: Input.GetAxis dentor de nuestro "juego" hace un cambio progresivo en el vector de nuestra capsula respecto a los movimientos que hagamos, por lo tanto cuando lo usamos para desplazarnos estamos dando una sensación de arranque y frenado al presionar y soltar el botón
+  Input.GetAxisRaw no tiene dicha progresión y por lo tanto llega a 1 o -1 al intante en el que se presiona el botón de acción.
   - Cuál se deberia usar? (Pregunta capciosa...).
+  Respuesta: todo depende de que sensación querramos dar al movernos.
   - Qué hace `input.magnitude`? Por qué es util?
+  Respuesta: Literalmente esta propiedad del vector retorna el tamaño que tiene.
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+  Respuesta: Normalizar un vector es llevar su magnitud a 1. sirve para realizar operaciones con el vector sin obtener efectos secundarios ya que si se usa el tamaño del vector y no está en 1, las operaciones pueden resultar de valores no deseados.
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:

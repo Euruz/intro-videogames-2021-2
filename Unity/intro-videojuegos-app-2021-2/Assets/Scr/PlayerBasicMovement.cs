@@ -24,8 +24,12 @@ public class PlayerBasicMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        Debug.Log($"horizontal: {horizontal}");
+        Debug.Log($"Vertical: {vertical}");
+
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
+        Debug.Log($"Magnitud del vector: {input.magnitude}");
         //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
         if (input.magnitude > 0)
         {
