@@ -26,9 +26,13 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+  Rpta: La función `Input.GetAxisRaw` muestra los valores -1, 0 o 1. La función `Input.GetAxis` arroja un valor continuo entre -1 y 1.
   - Cuál se deberia usar? (Pregunta capciosa...).
+  Rpta: Depende de la sensibilidad que se le quiera dar al botón para realizar la acción, bien sea una tecla o un joystick
   - Qué hace `input.magnitude`? Por qué es util?
+  Rpta: Arroja la magnitud matematica de un vector.
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+  Rpta: Significa darle una magnitud igual a uno, esto es util para conocer y trabajar con la dirección de un vector.
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
