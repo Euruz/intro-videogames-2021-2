@@ -24,6 +24,9 @@ public class PlayerBasicMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        Debug.Log($"horizontal: {horizontal}");
+        Debug.Log($"vertical: {vertical}");
+
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
         //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
@@ -33,7 +36,7 @@ public class PlayerBasicMovement : MonoBehaviour
             
             //TODO: Normalize the input to get the direction
             //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
+            lastMovementDirection = input.normalized;
         }
         else
         {
