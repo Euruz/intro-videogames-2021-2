@@ -28,20 +28,20 @@
 
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
 
-  R// Input.GetAxis e Input.GetAxisRaw la diferencia entre estos dos comandos es que GetAxis es analógico (tiene valores intermedios entre [-1,1]), en cambio GetAxisRaw es digital, no tiene valores intermedios y pasa directamente de 0 a 1 o de 0 a -1.
+  R// La diferencia entre estos dos comandos es que GetAxis es analógico (tiene valores intermedios entre [-1,1]), en cambio GetAxisRaw es digital, no tiene valores intermedios y pasa directamente de 0 a 1 o de 0 a -1.
 
   - Cuál se deberia usar? (Pregunta capciosa...).
 
-  R// Depende de gamefeel que se le quiera dar al juego, o el sistema para el que se necesite usar.
+  R// Depende del gamefeel que se le quiera dar al juego, o el sistema para el que se necesite usar.
 
   - Qué hace `input.magnitude`? Por qué es util?
 
   R// input.magnitude retorna la longitud del vector input. Es útil porque puede ayudarnos a saber la distancia
-  entre el origen de coordenadas y el vector.
+  entre el origen de coordenadas y la punta del vector y, en este caso, verificar si hay movimiento.
 
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
 
-  R// Normalizar un vector es hacer que el vector ahora tenga magnitud 1, pero siga apuntando a la misma dirección. Esto es útil pues ayuda a conocer la dirección de un vector y permite trabajar más fácil las operaciones con estos vectores.
+  R// Normalizar un vector es hacer que el vector ahora tenga magnitud 1, pero siga apuntando a la misma dirección. Esto es útil pues ayuda a conocer la dirección del vector y, además, facilitar las operaciones con estos vectores.
 
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado. ✅
 
