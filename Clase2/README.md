@@ -29,7 +29,7 @@
   - Cuál se deberia usar? (Pregunta capciosa...) => Depende del tipo de juego, ya que si se desea un movimiento a una misma velocidad se debe de usar `Input.GetAxisRaw`, mientras que si el juego necesita algun tipo de sensibilidad es mejor usar el `Input.GetAxis`.
   - Qué hace `input.magnitude`? Por qué es util? => Retorna la magnitud del vector posición en el plano 3D (x,y,z). Es útil para saber si se está moviendo el personaje. 
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento? => Normalizar un vector es convertir su longitud a 1, manteniendo su dirección. Es útil normalizar ya que es más fácil operar con la unidad que de otra forma.
-- **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
+- **Reto (Opcional):** Implementar una mécanica de dash en base al código dad.
 
 ### Como hacer la entrega:
 - Edite el [README de la clase 2](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Clase2/README.md) para agreguar las respuestas a las preguntas. Por favor que sean respuestas cortas y concisas. Puede ser en Español o Ingles.
