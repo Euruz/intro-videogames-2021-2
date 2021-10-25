@@ -42,3 +42,5 @@
 
 ## NOTA!!!!!!!!!
 **Si no tiene permisos para: clonar el repositorio, crear una nueva branch, hacer Pull, hacer Push, hacer Pull Request, o cualquier otro inconveniente relacionado al repositorio, por favor contactenos para resolver el problema lo mas pronto posible!!!!**
+
+Aca deberian ir las respuestas xd
