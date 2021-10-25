@@ -42,3 +42,17 @@
 
 ## NOTA!!!!!!!!!
 **Si no tiene permisos para: clonar el repositorio, crear una nueva branch, hacer Pull, hacer Push, hacer Pull Request, o cualquier otro inconveniente relacionado al repositorio, por favor contactenos para resolver el problema lo mas pronto posible!!!!**
+
+Solución taller 2 by jledesmap:
+
+1. GetAxis y GetAxisRaw son funciones de Unity que toman valores entre [1,1] con 0 como posición inicial/neutral, utiliza los Inputs del Mouse, Joystick y Teclado.
+
+GetAxis y GetAxisRaw se diferencian en que el primero varia su valor de manera fluida y paulatina, se puede percibir intuitivamente que el cambio de los valores se adapta al movimiento igualmente fluido de las palancas del joystick o el desplazamiento del Mouse, para el caso del teclado se percibe como un incremento en medida que la tecla lleva tiempo presionada. GetAxisRaw varía entre -1, 0 y 1 en forma de "escalera" o "interruptor", sin interpolar los valores que están entre estos.
+
+2. Depende del caso específico la función que vayamos a usar, una puede desempeñarse mejor que la otra en algunos casos, pero en general ambas son útiles. Tratándose de experiencia de usuario y movimiento: GetAxis puede brindar una mejor sensación de control sobre, por ejemplo, el personaje jugable, mientras que GetaxisRaw terminara dando movimientos más erráticos.
+
+3. La función Magnitude evalúa un vector y retorna el valor de su longitud, siendo esta definida como "la raíz cuadrada de la suma de los cuadrados de cada componente del vector".
+
+||(x, y, z, ... ,n)|| = √(x^2 + y^2 + z^2 + ... + n^2)
+
+4. La función Normalize evalúa un vector y devuelve otro con igual dirección, pero de longitud 1, este tipo de vectores son conocidos como vectores unitarios. Esta función permite concentrarse solo en la dirección, ignorando la información sobre la magnitud y es la base para hacer cálculos de movimiento de forma intuitivamente consistente.
