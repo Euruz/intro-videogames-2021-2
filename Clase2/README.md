@@ -26,9 +26,27 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+	R/ La diferencia entre estas dos clases de Unity, es que el Input.GetAxis, entrega valores dependiendo del tipo de control que se esté usando para jugar. 
+	Por ejemplo para un joystick solo podrá tener valores de -1, 0 y 1, lo que significa que el control se movió a la derecha, a la izquierda, o que 
+	directamente no se movió. Si el movimiento del personaje se va a hacer con el mouse, el valor ya no estará en el rango entre -1 y 1, sinó que dependerá
+	del "delta" del mouse y de la sensibilidad del eje definido (vertical, horizontal o profundidad). Es útil porque se pueden definir los controles y tamaños.
+	Por otro lado, la clase Input.GetAxisRaw entrega siempre -1, 0 y 1, independientemente del tipo de control que se esté usando. 
+
+
   - Cuál se deberia usar? (Pregunta capciosa...).
+	R/ La clase a usar dependerá directamente de la apicación que se tenga, si solo importa la dirección en la que se moverá el personaje, es indiferente cual
+	de los dos se use. Pero si se busca una mayor presición en el movimiento, como por ejemplo en jugos donde se tiene vista de primera persona y se quiere
+	hacer un barrido de todo el campo visual, sería preferible usar Input.GetAxis	
+
   - Qué hace `input.magnitude`? Por qué es util?
+	R/ Esta clase entrega por respuesta la magnitud de un vector, es decir, su longitud. Es útil para calibrar rangos de movimiento de los personajes con base
+	en el sistema de coordenadas establecido. 
+
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+	R/ Significa mantener su dirección, pero hacer su longitud igual a 1. Esto funciona muy bien a la hora de hacer operaciones con vectores en las cuales es 
+	irrelevante su longitud y solo importa su dirección. Así pues, se hace la operación y luego simplemente se hace una multiplicación por escalar, por el 
+	valor de su magnitud, que puede ser obtenida con el input.magnitude
+
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
