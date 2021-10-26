@@ -39,7 +39,7 @@
 
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
       RESPUESTA
-        Matematicamente normalizar un vector es tenerlo en un rango comparable con todos los vectores haciendo su magnitud igual a 1, por lo tanto los valores que cambian son los de x y y, emplenado las funciones trigonometricas basicas de seno y coseno.
+        Matematicamente normalizar un vector es tenerlo en un rango comparable con todos los vectores haciendo su magnitud igual a 1, por lo tanto los valores que cambian son los de x y y, emplenado las funciones trigonometricas basicas de seno y coseno
 
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
