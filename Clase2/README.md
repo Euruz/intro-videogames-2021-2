@@ -26,9 +26,13 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+    Respuesta: GetAxis toma valores entre -1 y 1 (incluyendo los decimales en medio) pero GetAxisRaw solo toma -1 y 1, por ejemplo con GetAxis al presionar D va desde 0 y pasa por varios decimales hasta llegar a 1, con GetAxisRaw cambia de 0 directamente a 1.
   - Cuál se deberia usar? (Pregunta capciosa...).
+    Respuesta: Depende de como se quiere implementar el movimiento, GetAxis serviría por ejemplo si queremos que la velocidad del movimiento usando la palanca de un control dependa de que tanto empujamos la palanca, si no nos interesa que tanto se movio la palanca y el movimiento va a ser igual incluso si la palanca no se empuja tanto como se puede, entonces GetAxisRaw es suficiente.
   - Qué hace `input.magnitude`? Por qué es util?
+    Respuesta: devuelve la magnitud (longitud) del vector input, en este caso es útil para saber si el valor del eje vertical u horizontal ha cambiado y así establecer si habrá movimiento o no.
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+    Respuesta: Normalizar un vector es dividir el vector entre su magnitud para convertirlo en un vector de magnitud 1 que vaya en la misma dirección del vector con el que estamos trabajando, es útil para usar la dirección de un vector sin tener valores extras que pueden afectar cálculos.
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:

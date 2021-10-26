@@ -11,9 +11,9 @@ public class PlayerBasicMovement : MonoBehaviour
     private float _acceleration = 15f;
     [SerializeField]
     private float _deceleration = 15f;
-    
-    
-    private float _currentSpeed = 0.1f;
+
+
+     private float _currentSpeed = 0.1f;
     private Vector3 lastMovementDirection;
     
     void Update()
@@ -21,8 +21,8 @@ public class PlayerBasicMovement : MonoBehaviour
         //What's the difference if we use Input.GetAxisRaw instead?
         //   Use the console to check the difference: Debug.Log or Debug.LogError
         //Which one should we use? (GetAxis or GetAxisRaw)
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
@@ -33,7 +33,7 @@ public class PlayerBasicMovement : MonoBehaviour
             
             //TODO: Normalize the input to get the direction
             //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
+            lastMovementDirection = input.normalized;
         }
         else
         {
