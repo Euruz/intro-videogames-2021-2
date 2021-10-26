@@ -24,11 +24,26 @@
 ```
 - Ubique y abra el proyecto de Unity.
 - Revise y juegue con el código `PlayerBasicMovement`.
+
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+	+ Input.GetAxis retorna un valor que cambia gradualmente de 1 a 0 o de 0 a -1. Es decir tiene un suavizado
+	+ Input.GetAxisRaw solamente retorna 0, -1 o 1 exactamente. 
+
   - Cuál se deberia usar? (Pregunta capciosa...).
+	+ Depende para lo que se quiera usar y como se sienta en el juego. 
+	+ Para detectar si hay movimiento es util GetAxisRaw
+	+ Para juegos 2D o de pelea  es comun GetAxisRaw
+	+ Para juegos de conduccion o en 3D es comun GetAxis
+
   - Qué hace `input.magnitude`? Por qué es util?
+	+ Retorna la longitud de un vector
+	+ Es util para detectar si hay entradas de movimiento en alguna direccion o si algun objeto se encuentra a cierta distancia de un punto.
+
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+	+ Normalize hace que el vector tenga magnitud 1
+	+ Es muy util usarlo antes de hacer calculos con el vector de direccion para que este no introduzca valores no deseados en el movimiento.
+
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
