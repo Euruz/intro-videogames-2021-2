@@ -24,6 +24,7 @@ public class PlayerBasicMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
         //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
@@ -42,9 +43,12 @@ public class PlayerBasicMovement : MonoBehaviour
 
         //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
         _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
+
+        
         
         Vector3 velocity = lastMovementDirection * _currentSpeed;
         Vector3 movement = velocity * Time.deltaTime;
+        Debug.Log(movement);
         
         transform.position += movement;
     }
