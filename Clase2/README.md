@@ -31,7 +31,7 @@
    en el movimiento mientras que Input.GetAxisRaw no la da. Input.GetAxisRaw es util para saber si tengo algún input, es decir si estoy oprimiendo algo.
   - Qué hace `input.magnitude`? Por qué es util?: input.magnitude devuelve la longitud del vector input. Es util para saber si el usuario está oprimiendo una tecla  
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?: normalizar un vector, es hacer que el vector tenga una magnitud
-  de 1. Esto es util para sacar la dirección del vector,sirve para hacer cosas relacionadas con el movimiento.Tambien sirve para ver la posición de donde está el jugador.
+  de 1, y conserver su dirección. Esto es util para sacar la dirección del vector,sirve para hacer cosas relacionadas con el movimiento.Tambien sirve para ver la posición de donde está el jugador.
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
