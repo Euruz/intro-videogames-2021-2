@@ -17,8 +17,8 @@
 > Miércoles 27 de Octubre, 11:59 pm (media noche).
 
 ### Descripción
-- Clone el [repositorio](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2).
-- Cree una nueva rama a partir del branch `sessions/session-2` con el siguiente formato: `student/[usuario-unal]/session-2`
+- Clone el [repositorio](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2). CHECK
+- Cree una nueva rama a partir del branch `sessions/session-2` con el siguiente formato: `student/[usuario-unal]/session-2` CHECK
 ```
  Ejemplo: Si su correo es pedrito@unal.edu.co, la rama para hacer la entrega de la clase 2 debe ser `student/pedrito/session-2`.
 ```
@@ -26,9 +26,21 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+      RESPUESTA: 
+        El Input.GetAxis se emplea para los valores del eje horizontal del eje vertical y horizontal ya sea con un joystick o con el mouse. La diferencia entre estos dos es el GetAxis brinda un valor entre -1 y 1 de manera decimal, mientras GetAxisRaw brinda los valores -1 y 1 indicando simplemente la direccion de movimiento, de si esta oprimido o no.
+
   - Cuál se deberia usar? (Pregunta capciosa...).
+      RESPUESTA
+        No hay como tal uno que deba ser usado en todos los casos, depende del tipo de necesidad, si simplemente se requiere verificar si se esta presionando una tecla, se emplea GetAxisRaw, mientras Getaxis se emplearia en el caso de ser necesario saber que tanto se esta presionando la tecla y ademas la sensibilidad de la tecla.
+
   - Qué hace `input.magnitude`? Por qué es util?
+      RESPUESTA
+        El imput.magnitude sirve para saber la magnitud de un vector. Es util para saber si el imput posee algun valor y cual es su magnitud, por lo tanto habrá alguna direccion en x o y.
+
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+      RESPUESTA
+        Matematicamente normalizar un vector es tenerlo en un rango comparable con todos los vectores haciendo su magnitud igual a 1, por lo tanto los valores que cambian son los de x y y, emplenado las funciones trigonometricas basicas de seno y coseno.
+
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
