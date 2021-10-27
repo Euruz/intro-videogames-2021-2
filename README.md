@@ -7,4 +7,4 @@
 
 
 ## Disclaimer
-Este repositorio se contruye con fines académicos y de enseñanza.
+Este repositorio se construye con fines académicos y de enseñanza.
