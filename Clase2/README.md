@@ -27,7 +27,7 @@
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
       RESPUESTA: 
-        El Input.GetAxis se emplea para los valores del eje horizontal del eje vertical y horizontal ya sea con un joystick o con el mouse. La diferencia entre estos dos es el GetAxis brinda un valor entre -1 y 1 de manera decimal, mientras GetAxisRaw brinda los valores -1 y 1 indicando simplemente la direccion de movimiento, de si esta oprimido o no.
+        El Input.GetAxis se emplea para los valores del eje horizontal del eje vertical y horizontal ya sea con un joystick o con el mouse. La diferencia entre estos dos es el GetAxis brinda un valor entre -1 y 1 de manera decimal, mientras GetAxisRaw brinda los valores -1 y 1 indicando simplemente la direccion de movimiento, de si esta oprimido o no..
 
   - Cuál se deberia usar? (Pregunta capciosa...).
       RESPUESTA
