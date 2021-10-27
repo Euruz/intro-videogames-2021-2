@@ -26,9 +26,18 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+
+    - R: `Input.GetAxis` realiza un cambio gradual en el invervalo de (0) a (-1) o de (0) a (1), lo cual se puede ver como un movimiento suave, por otro lado, `Input.GetAxisRaw` retorna un solo valor, ya sea (0), (-1) o (1), lo cual puede verse como un movimiento más brusco o inmediato.
+
   - Cuál se deberia usar? (Pregunta capciosa...).
+
+    - Depende de lo que se quiera lograr, si se desea un movimiento suave como caminar o un srpint considero que lo más adecuado es usar `Input.GetAxis`, pero si se quiere realizar un movimiento inmediato como una teletransportación coonsidero que lo más adecuado sería usar `Input.GetAxisRaw`.
   - Qué hace `input.magnitude`? Por qué es util?
+
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+
+    - La normalización consiste en eliminar la magnitud del vector convirtiendolo en unitario, permitiendo obtener su dirección y prescindiendo de la longitud, lo cual es parcularmente util para que los cambios de dirección no afecten la velocidad o aceleración del personaje.
+
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
