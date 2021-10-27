@@ -30,22 +30,23 @@ public class PlayerBasicMovement : MonoBehaviour
         if (input.magnitude > 0)
         {
             _currentSpeed += _acceleration * Time.deltaTime;
-            
-            //TODO: Normalize the input to get the direction
-            //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
-        }
-        else
-        {
+            lastMovementDirection = input.normalized;
+        } else {
             _currentSpeed -= _deceleration * Time.deltaTime;
         }
 
-        //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
         _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
-        
-        Vector3 velocity = lastMovementDirection * _currentSpeed;
+        Vector3 velocity;
+
+        //If space is pressed it dashes once, it won't dash again unless space is liberated and pressed again
+        if (Input.GetKeyDown("space"))
+        {
+            velocity = lastMovementDirection * 1500f;
+        } else {
+            velocity = lastMovementDirection * _currentSpeed;
+        }
+
         Vector3 movement = velocity * Time.deltaTime;
-        
         transform.position += movement;
     }
     
