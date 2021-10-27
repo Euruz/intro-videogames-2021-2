@@ -21,11 +21,8 @@ public class PlayerBasicMovement : MonoBehaviour
         //What's the difference if we use Input.GetAxisRaw instead?
         //   Use the console to check the difference: Debug.Log or Debug.LogError
         //Which one should we use? (GetAxis or GetAxisRaw)
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        Debug.Log("Horizontal: "+ horizontal);
-        Debug.Log("Vertical: "+ vertical);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector3 input = new Vector3(horizontal, 0, vertical);
 
