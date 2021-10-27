@@ -6,15 +6,20 @@ public class PlayerBasicMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField]
-    private float _maxSpeed = 5f;
+    private float _maxSpeed = 15f;
     [SerializeField]
-    private float _acceleration = 15f;
+    private float _acceleration = 10f;
     [SerializeField]
-    private float _deceleration = 15f;
+    private float _deceleration = 10f;
+    [SerializeField] 
+    private float _dashSpeed = 50f;
+    [SerializeField] 
+    private float _dashTime = 0.1f;
     
     
     private float _currentSpeed = 0.1f;
     private Vector3 lastMovementDirection;
+    private float _dashingTimer;
     
     void Update()
     {
@@ -23,8 +28,16 @@ public class PlayerBasicMovement : MonoBehaviour
         //Which one should we use? (GetAxis or GetAxisRaw)
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        bool wantDash = Input.GetKeyDown(KeyCode.Space);
 
         Vector3 input = new Vector3(horizontal, 0, vertical);
+        
+        if (wantDash && _dashingTimer <= 0)
+        {
+            _dashingTimer = _dashTime;
+        }
+
+        _dashingTimer -= Time.deltaTime;
 
         //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
         if (input.magnitude > 0)
@@ -40,10 +53,11 @@ public class PlayerBasicMovement : MonoBehaviour
             _currentSpeed -= _deceleration * Time.deltaTime;
         }
 
+        
         //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
         _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
         
-        Vector3 velocity = lastMovementDirection * _currentSpeed;
+        Vector3 velocity = lastMovementDirection *  (_dashingTimer > 0 ? _dashSpeed : _currentSpeed);
         Vector3 movement = velocity * Time.deltaTime;
         
         transform.position += movement;
