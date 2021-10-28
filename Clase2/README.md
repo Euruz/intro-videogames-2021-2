@@ -25,10 +25,14 @@
 - Ubique y abra el proyecto de Unity.
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
-  - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
-  - Cuál se deberia usar? (Pregunta capciosa...).
-  - Qué hace `input.magnitude`? Por qué es util?
-  - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+  - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?  
+    La diferencia es que GetAxis varía entre 0 y 1 o entre 0 y -1 de forma gradual, mientras que GetAxisRaw toma únicamente los valores -1, 0, o 1 de forma instantánea.
+  - Cuál se deberia usar? (Pregunta capciosa...).  
+    El uso de uno u otro dependerá de lo que se quiera lograr. Si se quiere que el input se refleje de manera instantánea, es buena idea usar GetAxisRaw. Si se desea que el input se detecte de una forma más "suave", es mejor usar GetAxis.
+  - Qué hace `input.magnitude`? Por qué es util?  
+    El atributo "magnitude" retorna la longitud (o magnitud) de un vector. Por ejemplo, para un vector de 2 componentes (x, y), esta es calculada como la raíz cuadrada de (x * x + y * y). Esto puede ser útil, por ejemplo, para determinar la distancia de algún objeto respecto al origen, o respecto a algún punto determinado.
+  - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?  
+    Normalizar un vector significa transformarlo en un vector que tenga la misma dirección y sentido, pero que tenga una longitud igual a 1. Como los vectores normalizados conservan la dirección del vector original mas no la magnitud, pueden ser útiles para expresar la dirección en la cual se debe realizar el movimiento, sin que se afecten otros factores de este como la velocidad o aceleración.
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
