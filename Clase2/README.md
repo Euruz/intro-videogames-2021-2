@@ -26,9 +26,13 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+    R/ la diferencia principal es que GetAxis realiza un cambio gradual desde 0 hasta 1 o hasta -1 mientras que GetAxisRaw retorna siempre 1,0 o -1 
   - Cuál se deberia usar? (Pregunta capciosa...).
+    R/ depende de la experiencia de usuario que se desee o la sensacion que quiera transmitir el juego (game feel)
   - Qué hace `input.magnitude`? Por qué es util?
+    R/ retorna la longitud de el vector donde se esta realizando el input. es util puesto que con el podemos calcular la distancia desde el vector hasta el origen
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+    R/ al normalizar un vector conseguimos un vector que apunte en la misma direccion pero que tenga magnitud uno, y es util puesto que trabajar con vercores normalizados es mas sencillo y facilita obtener la direccion del vector
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
