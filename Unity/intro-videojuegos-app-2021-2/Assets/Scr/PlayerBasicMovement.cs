@@ -15,6 +15,10 @@ public class PlayerBasicMovement : MonoBehaviour
     
     private float _currentSpeed = 0.1f;
     private Vector3 lastMovementDirection;
+
+    private bool dashing = false;
+    private float dashTime = 0.15f;
+    private int actualDash = 0;
     
     void Update()
     {
@@ -33,15 +37,35 @@ public class PlayerBasicMovement : MonoBehaviour
             
             //TODO: Normalize the input to get the direction
             //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
+            if (dashing == false) {
+                lastMovementDirection = input;
+            }
         }
         else
         {
             _currentSpeed -= _deceleration * Time.deltaTime;
         }
 
+        if (dashing == false) {
+            if (Input.GetKeyDown("space")) {
+                dashing = true;
+                actualDash = 0;
+            }
+            else {
+                _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
+            }
+        }
+        else {
+            if (actualDash*Time.deltaTime >= dashTime) {
+                dashing = false;
+            }
+            else {
+                actualDash += 1;
+                _currentSpeed = 40;
+            }
+        }
+
         //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
-        _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
         
         Vector3 velocity = lastMovementDirection * _currentSpeed;
         Vector3 movement = velocity * Time.deltaTime;
