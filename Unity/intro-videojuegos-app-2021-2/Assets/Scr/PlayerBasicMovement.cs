@@ -15,38 +15,63 @@ public class PlayerBasicMovement : MonoBehaviour
     
     private float _currentSpeed = 0.1f;
     private Vector3 lastMovementDirection;
+
+    private Rigidbody _rb;
+
+    [SerializeField]
+    private float  _dashSpeed = 10f;
+
+    [SerializeField]
+    private float  _dashTime = 0.1f;
+    private Vector3 _dirMovement;
+    private bool _isDashing;
+    private float _dashingTimer;
+
+    private void Start() {
+
+        _rb = GetComponent<Rigidbody>();
+    }
     
     void Update()
     {
-        //What's the difference if we use Input.GetAxisRaw instead?
-        //   Use the console to check the difference: Debug.Log or Debug.LogError
-        //Which one should we use? (GetAxis or GetAxisRaw)
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        _isDashing = Input.GetKeyDown(KeyCode.Space);
+
+
         Vector3 input = new Vector3(horizontal, 0, vertical);
+        _dirMovement = input.normalized();
 
-        //What does .magnitude? (Search for Unity Vector magnitude). Why it's useful?
-        if (input.magnitude > 0)
-        {
-            _currentSpeed += _acceleration * Time.deltaTime;
+        if (_isDashing){
+            _dashingTimer = _dashTime;
+        }
+
+        _dashingTimer -= Time.deltaTime;
+
+        // if (input.magnitude > 0)
+        // {
+        //     _currentSpeed += _acceleration * Time.deltaTime;
             
-            //TODO: Normalize the input to get the direction
-            //What means to normalize a Vector? And why it's useful when we apply movement?
-            lastMovementDirection = input;
-        }
-        else
-        {
-            _currentSpeed -= _deceleration * Time.deltaTime;
-        }
+        //     lastMovementDirection = input;
+        // }
+        // else
+        // {
+        //     _currentSpeed -= _deceleration * Time.deltaTime;
+        // }
 
-        //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
-        _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
+        // //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
+        // _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
         
-        Vector3 velocity = lastMovementDirection * _currentSpeed;
-        Vector3 movement = velocity * Time.deltaTime;
+        // Vector3 velocity = lastMovementDirection * _currentSpeed;
+        // Vector3 movement = velocity * Time.deltaTime;
         
-        transform.position += movement;
-    }
+        // transform.position += movement;
+    } 
+     private void FixedUpdate() {
+        vector3 velocity = _dirMovement + (_dashingTimer > 0 ? _dashSpeed : _maxSpeed);
+
+     }
     
 }
