@@ -34,7 +34,7 @@
   - En el script `Player` **SOLO** debe cambiar el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)). Esto implica, que el script `PlayerCharMovementController` debe tener los métodos `Move` y `RotateTo`.
 - Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?:
 
-    Con RigidBody cuando el Player sale de la plataforma automaticamente comienza a caer por efecto de la gravedad. Mientras que con el CharacterController el Player queda con esta altura al salir de la plataforma, es decir que, con el CharacterController el programador debe ser quien implemente las reacciones a las fuerzas, en este caso, la gravedad.
+    Con RigidBody cuando el Player sale de la plataforma automaticamente comienza a caer por efecto de la gravedad. Mientras que con el CharacterController el Player no cae al salir de la plataforma, es decir que, con el CharacterController el programador debe ser quien implemente las reacciones a las fuerzas, en este caso, la gravedad.
     Tambien el CharacterController tiene en sus propiedades la opcion de configurar el "tamaño maximo" de un escalón y la "inclinación máxima" de una rampa  que nuestro Player pueda subir.
 
 **Reto (Opcional)**
