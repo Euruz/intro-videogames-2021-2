@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerT : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 6.5f;
+    private float _speed = 1f;
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private PlayerCharMovementController _movementController;
 
     private Camera _cam;
     
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _cam = Camera.main;
     }
     
@@ -35,7 +35,9 @@ public class Player : MonoBehaviour
         {
             _targetRotation = Quaternion.LookRotation(targetMovementDirection);
         }
-               
+        
+        
+        
         _movementController.Move( targetMovementDirection * _speed );
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
 
