@@ -9,40 +9,44 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private PlayerCharMovementController _movementController;
 
     private Camera _cam;
     
     private Vector2 _movementInput;
     private Quaternion _targetRotation;
 
+
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _cam = Camera.main;
     }
     
     void Update()
     {
         ProcessInputs();
-        
         //Movement
         Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
         targetMovementDirection.Normalize();
-        
-        //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        
-        
+
+        if (targetMovementDirection.x!=0 || targetMovementDirection.z!=0)
+        {
+            //Rotation: look at movement direction
+            // Es dificil que quede en diagonal pues hay que levantar las flechas al mismo tiempo
+            // Esto se podría corregir con algun tipo de delay al "leer" los inputs
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+            _movementController.RotateTo( _targetRotation, _rotationSpeed );
+        }
+                
         _movementController.Move( targetMovementDirection * _speed );
-        _movementController.RotateTo( _targetRotation, _rotationSpeed );
     }
 
     void ProcessInputs()
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        // CalculateTargetRotation();
     }
 
     void CalculateTargetRotation()

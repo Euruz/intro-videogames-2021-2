@@ -23,6 +23,8 @@
   - En el script Player: descomentar la [linea 34](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L34) y commentar la [linea 45](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L45).
 - Agregar la lógica necesaria para que, al no oprimir Input de movimiento, el Player no regrese a la rotación por defecto. En cambio, debe quedar con la ultima rotación que se aplico mientras aun se estaba movimiendo.
 
+    // Es dificil que quede en diagonal pues hay que levantar las flechas al mismo tiempo, esto se podría corregir con un delay al "leer" los inputs
+
 **Parte 2: Character Controller**
 - Duplique la escena `Shooter`. La nueva escena debe llamarse `CharacterControllerMovement`.
   - Use `Ctrl + D` para duplicar la escena. Esto para asegurar que cualquier referencia externa sea dupliquen también.
