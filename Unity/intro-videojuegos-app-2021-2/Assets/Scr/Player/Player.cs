@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MovementController;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private IMovementController _movementController;
 
     private Camera _cam;
     
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<IMovementController>();
         _cam = Camera.main;
     }
     
@@ -31,7 +32,9 @@ public class Player : MonoBehaviour
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        if (targetMovementDirection.magnitude == 1) {
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        }
         
         
         _movementController.Move( targetMovementDirection * _speed );
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        // CalculateTargetRotation();
     }
 
     void CalculateTargetRotation()

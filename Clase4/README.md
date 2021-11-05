@@ -34,6 +34,8 @@
   - En el script `Player` **SOLO** debe cambiar el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)). Esto implica, que el script `PlayerCharMovementController` debe tener los métodos `Move` y `RotateTo`.
 - Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?
 
+  > Realmente existe diferencia entre el uso de `Rigidbody` y `CharacterController`. En ambos casos cuando el `Player` se acerca a las plataformas amarillas sube cada uno de los escalones, la diferencia llega cuando el `Player` sale de las plataformas, usando `Rigidbody` el `Player` inicia un descenso lento al notar que no está sobre un "piso" mientras que con `CharacterController` el `Player` se mantiene a la misma altura que la última de las plataformas. Es por esto que si se usa `CharacterController` está en manos del desarrollador implementar el efecto de gravedad.
+
 **Reto (Opcional)**
 - Cree las interfaces o clases abstractas que considere necesarias para que el script `Player` funcione indiferentemente de cual script de movimiento tenga, es decir, que no haya que especificar explicitamente el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)), en cambio usar un nivel más alto de abstracción.
 

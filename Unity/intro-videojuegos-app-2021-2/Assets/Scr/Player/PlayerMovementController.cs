@@ -1,6 +1,7 @@
 using UnityEngine;
+using MovementController;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour, IMovementController
 {
     private Rigidbody _rb;
     private Transform _body;
