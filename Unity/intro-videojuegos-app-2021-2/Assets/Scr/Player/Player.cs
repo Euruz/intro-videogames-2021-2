@@ -29,12 +29,16 @@ public class Player : MonoBehaviour
         //Movement
         Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
         targetMovementDirection.Normalize();
-        
-        //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        
+
+        //Don't rotate to the origin in the case of no player movement.
+        if (targetMovementDirection.magnitude > 0)
+        {
+            //Rotation: look at movement direction
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        }
         
         _movementController.Move( targetMovementDirection * _speed );
+
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
     }
 
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
     }
 
     void CalculateTargetRotation()
