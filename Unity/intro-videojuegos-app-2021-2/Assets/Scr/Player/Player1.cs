@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 6.5f;
-    [SerializeField]
-    private float _rotationSpeed = 1f;
     
-    private PlayerMovementController _movementController;
+    
+    
+    private PlayerCharMovementController _movementController;
 
     
     private Camera _cam;
@@ -19,8 +19,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _cam = Camera.main;
+        
     }
     
     void Update()
@@ -34,17 +35,18 @@ public class Player : MonoBehaviour
         
 
 
-        if (targetMovementDirection != Vector3.zero)
+        /*if (targetMovementDirection != Vector3.zero)
         {
             //Rotation: look at movement direction
-            
-            _targetRotation = Quaternion.LookRotation(targetMovementDirection, Vector3.up);
-            this.transform.rotation = Quaternion.RotateTowards (transform.rotation, _targetRotation, _rotationSpeed*Time.deltaTime);
-        }
+            Debug.Log("CambioDireccion");
+            //transform.forward = targetMovementDirection;
+            //_targetRotation = Quaternion.LookRotation(targetMovementDirection, Vector3.up);
+            //this.transform.rotation = Quaternion.RotateTowards (transform.rotation, _targetRotation, _rotationSpeed*Time.deltaTime);
+        }*/
         
         
-        _movementController.Move( targetMovementDirection * _speed );
-        _movementController.RotateTo( _targetRotation, _rotationSpeed );
+        _movementController.Move(_movementInput);
+        _movementController.RotateTo(targetMovementDirection);
     }
 
     void ProcessInputs()
