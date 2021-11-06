@@ -31,7 +31,9 @@ public class Player : MonoBehaviour
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        if((_movementInput.x != 0) || (_movementInput.y != 0)){
+        if((_movementInput.x != 0) || (_movementInput.y != 0)){                  
+            //se realiza este if para que al momento del personaje deje de moverse o tenga entrada de movimiento igual a cero
+            // no se vuelva a actualizar su posición y asi quedarse siempre viendo en la ultima direccion en la que se movio
             _targetRotation = Quaternion.LookRotation(targetMovementDirection);
         }
         
