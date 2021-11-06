@@ -31,7 +31,12 @@ public class Player : MonoBehaviour
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        //Entra al condicional cuando se mueve el personaje, por lo tanto no se actualiza la rotacion y se queda en su último estado de movimiento.
+        if((_movementInput.x != 0) || (_movementInput.y != 0)){
+
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+            
+        }
         
         
         _movementController.Move( targetMovementDirection * _speed );
