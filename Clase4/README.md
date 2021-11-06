@@ -33,7 +33,7 @@
 - Cree el código necesario para que el script `PlayerCharMovementController` ejecute el movimiento del jugador usando `CharacterController` en vez de `Rigidbody`.
   - En el script `Player` **SOLO** debe cambiar el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)). Esto implica, que el script `PlayerCharMovementController` debe tener los métodos `Move` y `RotateTo`.
 - Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?
-
+R: con el CharacterController el tiene una interaccion de colision de manera que no permite que uno se suba a no ser que se suba en diagnoal por una esquina, luego si uno utiliza solo el comando Move de el CharacterController sin controlar la gravedad pues el jugador se queda a esa altura pero ya controlandola genera una caida correcta
 **Reto (Opcional)**
 - Cree las interfaces o clases abstractas que considere necesarias para que el script `Player` funcione indiferentemente de cual script de movimiento tenga, es decir, que no haya que especificar explicitamente el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)), en cambio usar un nivel más alto de abstracción.
 

@@ -10,19 +10,22 @@ public class PlayerCharMovementController : MonoBehaviour
 
     private Vector3 _targetVelocity;
     private Quaternion _targetRotation;
-
+    public float _gravity = 2000.0f;
     private float _targetRotationSpeed;
 
     public void Move(Vector3 velocity)
     {
-        _targetVelocity = velocity;
+        velocity.y = velocity.y - (_gravity * Time.deltaTime);
+        _rb.Move(velocity * Time.deltaTime);
+       // _targetVelocity = velocity;
     }
 
     public void RotateTo(Quaternion rotation, float rotationSpeed)
     {
+        
         _targetRotation = rotation;
         _targetRotationSpeed = rotationSpeed;
-
+        
 
     }
     private void Start()
@@ -35,6 +38,8 @@ public class PlayerCharMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _body.rotation = Quaternion.RotateTowards(_body.rotation, _targetRotation, _targetRotationSpeed);
     }
+
+  
 }
