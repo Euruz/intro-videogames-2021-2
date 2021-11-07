@@ -34,6 +34,8 @@
   - En el script `Player` **SOLO** debe cambiar el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)). Esto implica, que el script `PlayerCharMovementController` debe tener los métodos `Move` y `RotateTo`.
 - Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?
 
+- R/: Las cajas tienen ya un aspecto como de escalones las cuales el personaje es capaz de subir, interactuan en forma de escalón con el personaje y cuando el personaje sale de las cajas cae igualmente como pasaba con el rigidbody.
+
 **Reto (Opcional)**
 - Cree las interfaces o clases abstractas que considere necesarias para que el script `Player` funcione indiferentemente de cual script de movimiento tenga, es decir, que no haya que especificar explicitamente el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)), en cambio usar un nivel más alto de abstracción.
 
