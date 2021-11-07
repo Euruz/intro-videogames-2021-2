@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private PlayerCharMovementController _movementController;
 
     private Camera _cam;
     
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _cam = Camera.main;
     }
     
@@ -29,20 +29,22 @@ public class Player : MonoBehaviour
         //Movement
         Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
         targetMovementDirection.Normalize();
-        
+
+
         //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        
+        _targetRotation = Quaternion.LookRotation(targetMovementDirection);
         
         _movementController.Move( targetMovementDirection * _speed );
-        _movementController.RotateTo( _targetRotation, _rotationSpeed );
+        if (_movementInput != Vector2.zero) {
+            _movementController.RotateTo( _targetRotation, _rotationSpeed );
+        }
     }
 
     void ProcessInputs()
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
     }
 
     void CalculateTargetRotation()

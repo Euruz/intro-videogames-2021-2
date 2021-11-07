@@ -13,7 +13,7 @@ public class PlayerBasicMovement : MonoBehaviour
     [SerializeField] 
     private float _dashTime = 0.1f;
 
-    private float _currentSpeed = 0.1f;
+    //private float _currentSpeed = 0.1f;
     private Vector3 _lastMovementDirection;
 
     private Rigidbody _rb;

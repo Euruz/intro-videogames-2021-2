@@ -9,16 +9,17 @@ public class PlayerMovementController : MonoBehaviour
     private Quaternion _targetRotation;
     private float _targetRotationSpeed;
 
-    public void Move(Vector3 velocity)
-    {
-        _targetVelocity = velocity;
-    }
+    // public void Move(Vector3 velocity)
+    // {
+    //     _targetVelocity = velocity;
+    // }
 
-    public void RotateTo(Quaternion rotation, float rotationSpeed)
-    {
-        _targetRotation = rotation;
-        _targetRotationSpeed = rotationSpeed;
-    }
+    // public void RotateTo(Quaternion rotation, float rotationSpeed)
+    // {
+    //     _targetRotation = rotation;
+    //     _targetRotationSpeed = rotationSpeed;
+    //     //Debug.Log("a");
+    // }
 
     private void Start()
     {
