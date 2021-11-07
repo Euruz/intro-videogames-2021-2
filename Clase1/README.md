@@ -27,11 +27,11 @@
 |jarcilac@unal.edu.co          |JacobArcilaC           |
 |lmarenast@unal.edu.co         |lmarenast              |
 |saaristizabalgi@unal.edu.co   |salitomeyo             |
-|jasprilla@unal.edu.co         |                       |
+|jasprilla@unal.edu.co         |jdaar                  |
 |jdavendanoo@unal.edu.co       |JDavidAvendano         |
 |elbedoyaga@unal.edu.co        |EliBedoya              |
 |jubuitrago@unal.edu.co        |                       |
-|jobustamantea@unal.edu.co     |                       |
+|jobustamantea@unal.edu.co     |`JoseDaniel959`        |
 |jucadavidj@unal.edu.co        |jucadavid              |
 |jfcadavidr@unal.edu.co        |jcadavid               |
 |dacaicedoe@unal.edu.co        |                       |
