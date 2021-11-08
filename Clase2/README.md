@@ -18,7 +18,7 @@
 
 ### Descripción
 - Clone el [repositorio](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2).
-- Cree una nueva rama a partir del branch `sessions/session-2` con el siguiente formato: `student/[usuario-unal]/session-2`
+- Cree una nueva rama a partir del branch `sessions/session-2` con el siguiente formato: `student/daatoroag/session-2`
 ```
  Ejemplo: Si su correo es pedrito@unal.edu.co, la rama para hacer la entrega de la clase 2 debe ser `student/pedrito/session-2`.
 ```
@@ -26,15 +26,27 @@
 - Revise y juegue con el código `PlayerBasicMovement`.
 - Responda las siguientes preguntas:
   - Cuál es la diferencia entre `Input.GetAxis` y `Input.GetAxisRaw`?
+
+    R: get axis cambía gradualmente y getaxisraw entrega un movimiento más brusco
+
   - Cuál se deberia usar? (Pregunta capciosa...).
+
+    R: los dos son validos ya que a veces es necesario sólo un aproximado y a veces algo más preciso
+
   - Qué hace `input.magnitude`? Por qué es util?
+
+    R: es la distancia desde el origen, es importante para mover un objeto en el espacio o saber que tan alejado está
+
   - Que significa normalizar un Vector (`Normalize`)? Por qué es util cuando se trabaja con movimiento?
+
+    R: cambía la magnitud y cuando normalizamos podemos encontrar facilmente la dirección de un objeto
+
 - **Reto (Opcional):** Implementar una mécanica de dash en base al código dado.
 
 ### Como hacer la entrega:
 - Edite el [README de la clase 2](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Clase2/README.md) para agreguar las respuestas a las preguntas. Por favor que sean respuestas cortas y concisas. Puede ser en Español o Ingles.
 - Haga PR al branch `sessions/session-2`. 
-- Para el nombre del PR usar el mensaje: `Solución Taller 2 by [usuario-unal]`. 
+- Para el nombre del PR usar el mensaje: `Solución Taller 2 by daatoroag`. 
 ```
  Ejemplo: Si su correo es pedrito@unal.edu.co, el título del PR debe ser: `Solución Taller 2 by pedrito`.
 ```
