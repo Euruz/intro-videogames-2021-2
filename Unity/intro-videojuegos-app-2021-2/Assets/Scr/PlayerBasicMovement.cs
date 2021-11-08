@@ -15,7 +15,13 @@ public class PlayerBasicMovement : MonoBehaviour
     
     private float _currentSpeed = 0.1f;
     private Vector3 lastMovementDirection;
-    
+
+    [SerializeField] private float _maxDashTime = 1f;
+    [SerializeField] private float _currentDashTime = 1.1f;
+    [SerializeField] private float _dashDistance = 5f;
+    [SerializeField] private float _dashIncrementStep = 0.1f;
+
+
     void Update()
     {
         //What's the difference if we use Input.GetAxisRaw instead?
@@ -30,7 +36,7 @@ public class PlayerBasicMovement : MonoBehaviour
         if (input.magnitude > 0)
         {
             _currentSpeed += _acceleration * Time.deltaTime;
-            
+
             //TODO: Normalize the input to get the direction
             //What means to normalize a Vector? And why it's useful when we apply movement?
             lastMovementDirection = input;
@@ -42,11 +48,26 @@ public class PlayerBasicMovement : MonoBehaviour
 
         //https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
         _currentSpeed = Mathf.Clamp(_currentSpeed, 0f, _maxSpeed);
-        
+
         Vector3 velocity = lastMovementDirection * _currentSpeed;
         Vector3 movement = velocity * Time.deltaTime;
+
         
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_currentDashTime >= _maxDashTime)
+            {
+                _currentDashTime = 0;
+
+            }
+        }
+        if (_currentDashTime < _maxDashTime)
+        {
+            movement *= _dashDistance;
+            print("Dasheando");
+            print(_maxDashTime);
+            _currentDashTime += _dashIncrementStep;
+        }
         transform.position += movement;
     }
-    
 }

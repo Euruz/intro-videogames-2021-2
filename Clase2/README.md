@@ -42,3 +42,9 @@
 
 ## NOTA!!!!!!!!!
 **Si no tiene permisos para: clonar el repositorio, crear una nueva branch, hacer Pull, hacer Push, hacer Pull Request, o cualquier otro inconveniente relacionado al repositorio, por favor contactenos para resolver el problema lo mas pronto posible!!!!**
+
+## RESPUESTAS:
+Cuál es la diferencia entre Input.GetAxis y Input.GetAxisRaw? Con Input.GetAxis se realiza un recorrido continua, mientras que con Input.GetAxis el recorrido es de forma discreto
+Cuál se deberia usar? (Pregunta capciosa...). Se debe usar el que sea mas acorde a las necesidades del juego y los gustos del programador
+Qué hace input.magnitude? Por qué es util? Saca la raiz cuadrada de la suma de los cuadrados de cada coordenada, sirve para saber la magnitud del vector, siemore es positivo.
+Que significa normalizar un Vector (Normalize)? Por qué es util cuando se trabaja con movimiento? Significa poner todas las coordenadas en valores entre 0 y 1, es util porque permite tener todos los datos en el mismo rango de magnitudes y el aumento de posición sea constante en pequeños pasos.
