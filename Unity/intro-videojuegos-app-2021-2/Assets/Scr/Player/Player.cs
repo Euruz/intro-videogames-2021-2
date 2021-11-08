@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     
     private Vector2 _movementInput;
     private Quaternion _targetRotation;
+    private Vector3 targetMovementDirection;
+    private Vector3 saveMovementDirection;
 
     void Start()
     {
@@ -22,47 +24,50 @@ public class Player : MonoBehaviour
         _cam = Camera.main;
     }
     
-    void Update()
-    {
-        ProcessInputs();
-        
-        //Movement
-        Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
-        targetMovementDirection.Normalize();
-        
-        //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        
-        
-        _movementController.Move( targetMovementDirection * _speed );
-        _movementController.RotateTo( _targetRotation, _rotationSpeed );
-    }
-
     void ProcessInputs()
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
     }
-
-    void CalculateTargetRotation()
+    void Update()
     {
-        //We made a raycast to detect where the mouse is in our 3D space
-        Vector2 mouseScreenPosition = Input.mousePosition;
-        
-        //Will contain all the info result from the raycast hit.
-        //Check https://docs.unity3d.com/ScriptReference/RaycastHit.html for more info.
-        RaycastHit hit; 
-        
-        //Create the Ray. In this case we use the camera cause we need to convert the 
-        //  mouse position (Screen coordinates) to a 3D point (World space).
-        Ray ray = _cam.ScreenPointToRay(mouseScreenPosition);
-        
-        //Process Raycast using the Physics engine
-        if (Physics.Raycast(ray, out hit))
+        ProcessInputs();
+
+        targetMovementDirection = new Vector3(x:_movementInput.x, y:0, z:_movementInput.y);
+        targetMovementDirection.Normalize();
+        if (targetMovementDirection.x != 0 || targetMovementDirection.z != 0)
         {
-            Vector3 dir = (hit.point - transform.position).normalized;
-            _targetRotation = Quaternion.LookRotation(dir);
+            saveMovementDirection = targetMovementDirection;
+            _movementController.Move(velocity:targetMovementDirection * _speed);
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+            _movementController.RotateTo(_targetRotation, rotationSpeed: _rotationSpeed);
+        } else {
+            _targetRotation = Quaternion.LookRotation(saveMovementDirection);
+            _movementController.RotateTo(_targetRotation, rotationSpeed: _rotationSpeed);
         }
     }
+}
+
+
+    // void CalculateTargetRotation()
+    // {
+    //     //We made a raycast to detect where the mouse is in our 3D space
+    //     Vector2 mouseScreenPosition = Input.mousePosition;
+        
+    //     //Will contain all the info result from the raycast hit.
+    //     //Check https://docs.unity3d.com/ScriptReference/RaycastHit.html for more info.
+    //     RaycastHit hit; 
+        
+    //     //Create the Ray. In this case we use the camera cause we need to convert the 
+    //     //  mouse position (Screen coordinates) to a 3D point (World space).
+    //     Ray ray = _cam.ScreenPointToRay(mouseScreenPosition);
+        
+    //     //Process Raycast using the Physics engine
+    //     if (Physics.Raycast(ray, out hit))
+    //     {
+    //         Vector3 dir = (hit.point - transform.position).normalized;
+    //         _targetRotation = Quaternion.LookRotation(dir);
+    //     }
+    // }
 }
