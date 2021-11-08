@@ -70,4 +70,3 @@ public class Player : MonoBehaviour
     //         _targetRotation = Quaternion.LookRotation(dir);
     //     }
     // }
-}
