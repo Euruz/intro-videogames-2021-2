@@ -31,18 +31,20 @@ public class Player : MonoBehaviour
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        
-        
+        if (targetMovementDirection.magnitude>0)
+        {
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        }
         _movementController.Move( targetMovementDirection * _speed );
-        _movementController.RotateTo( _targetRotation, _rotationSpeed );
+         _movementController.RotateTo( _targetRotation, _rotationSpeed );
+        
     }
 
     void ProcessInputs()
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
     }
 
     void CalculateTargetRotation()
