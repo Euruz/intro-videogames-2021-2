@@ -5,11 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 6.5f;
+    private float _speed = 0.00001f;
     [SerializeField]
-    private float _rotationSpeed = 30f;
+    private float _rotationSpeed = 3f;
     
-    private PlayerMovementController _movementController;
+    //private PlayerMovementController _movementController;
+	private PlayerCharMovementController _movementController;
     private GunController _gunController;
 
     private Camera _cam;
@@ -19,9 +20,11 @@ public class Player : MonoBehaviour
     private Quaternion _targetRotation;
     private bool _isShooting;
 
+
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+		//_movementController = GetComponent<PlayerMovementController>();
+		_movementController = GetComponent<PlayerCharMovementController>();
         _gunController = GetComponent<GunController>();
         _cam = Camera.main;
         _worldPlane = new Plane(Vector3.up, 0);
@@ -30,14 +33,20 @@ public class Player : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        
+        //Actual state
+		
+		
         //Movement
         Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
         targetMovementDirection.Normalize();
-        
-        //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
-        _movementController.Move( targetMovementDirection * _speed );
+ 		if ((_movementInput.x != 0) || (_movementInput.y != 0))
+		{
+			//Rotation: look at movement direction
+			_targetRotation = Quaternion.LookRotation(targetMovementDirection);
+		}     
+		//targetMovementDirection
+
+        _movementController.Move( targetMovementDirection * _speed);
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
 
         if (_isShooting)
@@ -54,7 +63,8 @@ public class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
+		
         
         //Shoot
         _isShooting = Input.GetButton("Fire1");

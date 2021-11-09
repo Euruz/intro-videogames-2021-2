@@ -9,6 +9,7 @@ public class PlayerMovementController : MonoBehaviour
     private Quaternion _targetRotation;
     private float _targetRotationSpeed;
 
+
     public void Move(Vector3 velocity)
     {
         _targetVelocity = velocity;
@@ -24,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _body = transform.Find("PlayerBody");
+
     }
 
     void Update()
