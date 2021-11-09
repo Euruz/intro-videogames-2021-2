@@ -9,19 +9,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private PlayerCharMovementController _movementController;
     private GunController _gunController;
 
     private Camera _cam;
     private Plane _worldPlane;
     
     private Vector2 _movementInput;
+    private Vector3 _lastRotation;
     private Quaternion _targetRotation;
     private bool _isShooting;
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _gunController = GetComponent<GunController>();
         _cam = Camera.main;
         _worldPlane = new Plane(Vector3.up, 0);
@@ -32,11 +33,18 @@ public class Player : MonoBehaviour
         ProcessInputs();
         
         //Movement
-        Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
-        targetMovementDirection.Normalize();
+        Vector3 targetMovementDirection = Vector3.zero;
+        if (_movementInput.magnitude != 0)
+        {
+            targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
+            targetMovementDirection.Normalize();
+        }
         
         //Rotation: look at movement direction
-        _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        if (targetMovementDirection != Vector3.zero)
+        {
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        }
         _movementController.Move( targetMovementDirection * _speed );
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
 
@@ -54,7 +62,7 @@ public class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
-        CalculateTargetRotation();
+        //CalculateTargetRotation();
         
         //Shoot
         _isShooting = Input.GetButton("Fire1");
