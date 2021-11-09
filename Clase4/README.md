@@ -32,7 +32,7 @@
   - Remuena el componente `PlayerMovementController`. En su lugar añada el componente `PlayerCharMovementController` (el script que creó anteriormente).
 - Cree el código necesario para que el script `PlayerCharMovementController` ejecute el movimiento del jugador usando `CharacterController` en vez de `Rigidbody`.
   - En el script `Player` **SOLO** debe cambiar el tipo de la variable `_movementController` ([linea 12](https://github.com/UNAL-IntroVideojuegos-2021-2/intro-videogames-2021-2/blob/main/Unity/intro-videojuegos-app-2021-2/Assets/Scr/Player/Player.cs#L12)). Esto implica, que el script `PlayerCharMovementController` debe tener los métodos `Move` y `RotateTo`.
-- Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?
+- Note las diferencias entre trabajar con `Rigidbody` y `CharacterController`. Por ejemplo: que pasa con las pequeñas plataformas amarillas que hay en la escena? Como interactuan? Que pasa cuando el Player sale de las plataformas?  
     Cuando se utilizaba Rigidbody, el player era incapaz de subir a las plataformas amarillas. En cambio, al utilizar CharacterController, el player puede subir a través de las plataformas tal como si fueran escalones. Cuando el player sale de las plataformas, este regresa al suelo, debido a que el método SimpleMove de la clase CharacterController le aplica la gravedad automáticamente al personaje.
 
 **Reto (Opcional)**
