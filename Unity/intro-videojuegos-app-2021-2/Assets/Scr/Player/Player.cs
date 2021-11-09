@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        _targetRotation = Quaternion.LookRotation(targetMovementDirection);
         _movementController.Move( targetMovementDirection * _speed );
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
 
