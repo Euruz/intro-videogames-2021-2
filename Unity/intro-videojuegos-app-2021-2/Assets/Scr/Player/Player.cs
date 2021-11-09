@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
     
-    private PlayerMovementController _movementController;
+    private PlayerCharMovementController _movementController;
     private GunController _gunController;
 
     private Camera _cam;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _movementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<PlayerCharMovementController>();
         _gunController = GetComponent<GunController>();
         _cam = Camera.main;
         _worldPlane = new Plane(Vector3.up, 0);
@@ -31,18 +31,23 @@ public class Player : MonoBehaviour
     {
         ProcessInputs();
         
-        //Movement
+       
         Vector3 targetMovementDirection = new Vector3(_movementInput.x, 0, _movementInput.y);
+       
+         
         targetMovementDirection.Normalize();
         
         //Rotation: look at movement direction
-        //_targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        if(targetMovementDirection.magnitude != 0){
+            _targetRotation = Quaternion.LookRotation(targetMovementDirection);
+        }
+        
         _movementController.Move( targetMovementDirection * _speed );
         _movementController.RotateTo( _targetRotation, _rotationSpeed );
 
         if (_isShooting)
         {
-            _gunController.OnTriggerHold();
+            //_gunController.OnTriggerHold();
         }
         else
         {
@@ -52,6 +57,7 @@ public class Player : MonoBehaviour
 
     void ProcessInputs()
     {
+        
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Process rotation
         CalculateTargetRotation();
@@ -80,12 +86,12 @@ public class Player : MonoBehaviour
         //     _targetRotation = Quaternion.LookRotation(dir);
         // }
 
-        float distanceToPlane;
+        /*float distanceToPlane;
         if (_worldPlane.Raycast(ray, out distanceToPlane))
         {
             Vector3 pointHit = ray.GetPoint(distanceToPlane);
             Vector3 dir = (pointHit - transform.position).normalized;
             _targetRotation = Quaternion.LookRotation(dir);
-        }
+        }*/
     }
 }
