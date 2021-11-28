@@ -42,6 +42,14 @@ public class AIAgent : MonoBehaviour
     
     public bool IsLookingTarget()
     {
-        return true;
+        Vector3 Enemy = transform.forward;
+
+        Vector3 Player = _player.position - transform.position;
+
+        if (Vector3.Dot(Enemy, Player) >= 0)
+        {
+            return true;
+        }
+        return false; 
     }
 }
