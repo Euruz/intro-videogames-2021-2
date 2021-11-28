@@ -26,6 +26,7 @@ public class AIPatrolState : AIState
             agent.StateMachine.ChangeState(AIStateID.ChaseTarget);
         }
     }
+    //github por favor deja de ser tan pesado
     private void OnArrive(AIAgent agent)
     {
         _point = _pathContainer.NextPoint();
